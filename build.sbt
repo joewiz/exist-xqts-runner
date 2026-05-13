@@ -68,6 +68,7 @@ libraryDependencies ++= {
     "net.sf.saxon" % "Saxon-HE" % "9.9.1-8",
     "org.exist-db" % "exist-core" % existV changing(),
     "org.exist-db" % "exist-expath" % existV changing(),
+    "org.exist-db" % "exist-expath-file" % existV changing(),
     "org.xmlunit" % "xmlunit-core" % "2.11.0",
 
     "org.slf4j" % "slf4j-api" % "2.0.17",

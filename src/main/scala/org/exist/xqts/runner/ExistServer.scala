@@ -22,7 +22,6 @@ import java.nio.charset.Charset
 import java.util.Properties
 import org.exist.source.{Source, StringSource}
 import org.exist.storage.{DBBroker, XQueryPool}
-import org.exist.test.ExistEmbeddedServer
 import org.exist.util.serializer.XQuerySerializer
 import org.exist.xquery.{CompiledXQuery, Function, XPathException, XQuery, XQueryContext}
 import org.exist.xquery.value.AnyURIValue
@@ -107,7 +106,7 @@ object ExistServer {
  * Encapsulation of operations for an exist-db server.
  */
 class ExistServer {
-  private val existServer = new ExistEmbeddedServer(true, true)
+  private val existServer = new EmbeddedExist()
   private val logger = Logger(classOf[ExistServer])
 
   /**
@@ -121,7 +120,7 @@ class ExistServer {
    *
    * @return Success or Failure.
    */
-  private def startServer(): Try[Unit] = Try(existServer.startDb())
+  private def startServer(): Try[Unit] = Try(existServer.start())
 
   /**
    * Get a connection to the eXist-db server.
@@ -158,7 +157,7 @@ class ExistServer {
     }, "exist-shutdown-timeout")
     shutdownTimeout.setDaemon(true)
     shutdownTimeout.start()
-    existServer.stopDb()
+    existServer.stop()
   }
 }
 

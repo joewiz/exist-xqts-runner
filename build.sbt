@@ -59,6 +59,7 @@ libraryDependencies ++= {
     "org.exist-db.thirdparty.com.fasterxml" % "aalto-xml" % "1.1.0-20180330",
     "org.parboiled" %% "parboiled" % "2.5.1",
     "org.apache.ant" % "ant-junit" % "1.10.15", // used for formatting junit style report
+    "junit" % "junit" % "4.13.2", // the JUnit 3 API ant-junit's report formatter is built on, no longer provided by exist-core
 
     "net.sf.saxon" % "Saxon-HE" % "12.5",
     "org.exist-db" % "exist-core" % existV,
